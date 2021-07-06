@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .redd {
+      color: red
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- 点击列表中的某一项，那么该项的文字变红 -->
+  <div id='app'>
+    <ul>
+      <li v-for="(m, index) in movies" v-on:click="colorChange(index)" :class="{redd: index === isred}">{{index}} {{m}}</li>
+    </ul>
+  </div>
+  
+  <script src='..\js\vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'おはよ',
+        movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人'],
+        isred: 0
+      },
+      methods: {
+        colorChange: function(index){
+          this.isred = index
+        }
+      }
+    })
+  </script>
+  
+</body>
+</html>
