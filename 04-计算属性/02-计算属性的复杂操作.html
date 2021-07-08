@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>总价格: {{sumPrice}}</h2>
+  </div>
+  
+  <script src='..\js\vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        books: [
+          {id: 110, name: 'Unix编程艺术', price: 119},
+          {id: 111, name: '代码大全', price: 105},
+          {id: 112, name: '深入理解计算机原理', price: 98},
+          {id: 113, name: '现代操作系统', price: 87},
+        ]
+      },
+
+      //计算属性与Methods的区别：
+      //计算属性存在缓存，调用一次后就可以多次使用，而Methods使用一次就需要调用一次，效率很低
+      computed: {
+        sumPrice: function(){
+          let i = 0, sum = 0;
+          while(i < this.books.length){
+            sum += this.books[i].price;
+            i++;
+          }
+
+          /* for (let i in this books){
+            this.books[i] ...
+          } */
+          /* for (let book of books){
+
+          } */
+
+          return sum;
+        }
+      }
+    })
+  </script>
+  
+</body>
+</html>
