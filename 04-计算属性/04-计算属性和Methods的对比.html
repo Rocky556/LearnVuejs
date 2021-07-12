@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <audio autoplay="" loop="" preload="auto" src="..\bgmusic.mp3">
+    你的浏览器不支持audio标签
+  </audio>
+
+
+  <div id='app'>
+    <!-- 1.直接拼接 -->
+    <h2>{{firstName}} {{lastName}}</h2>
+    <!-- 2.定义Methods -->
+    <h2>{{getFullName()}}</h2>
+    <!-- 3.computed -->
+    <g2>{{fullName}}</g2>
+  </div>
+  
+  <script src='..\js\vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'Kobe',
+        lastName: 'Bryant'
+      },
+      methods: {
+        getFullName: function () {
+          return this.firstName + ' ' + this.lastName;
+        }
+      },
+      computed: {
+        fullName: function () {
+          return this.firstName + ' ' + this.lastName;
+        }
+      }
+    })
+  </script>
+  
+</body>
+</html>
