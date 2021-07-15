@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id='app'>
+    <!-- 3. 使用组件 -->
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+  </div>
+
+  <!-- 必须放在一个Vue实例中，不然无效 -->
+  <my-cpn></my-cpn>
+
+  <script src='..\js\vue.js'></script>
+  <script>
+
+    // ES6
+    // Tab上的波浪号也是字串，并且可以换行
+
+    // 1. 创建组件构造器对象
+    const cpnC = Vue.extend({
+      template: `
+      <div>
+        <h2>我是标题</h2>
+        <p>我是内容, 哈哈哈哈哈</p>
+        <p>我是内容, 呵呵呵呵呵</p>
+      </div>`
+    })
+
+    // 2. 注册组件
+    Vue.component('my-cpn', cpnC)
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'おはよ'
+      }
+    })
+  </script>
+
+</body>
+
+</html>
